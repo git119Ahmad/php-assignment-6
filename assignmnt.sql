@@ -30,5 +30,5 @@ This query will skip first 10 value and then keep next 5 values like
 3 second max salary in 1(a) above.
 
 E)
-SELECT COUNT(DISTINCT `OPEN_BRANCH_ID`)  as headbranch
+SELECT COUNT(DISTINCT `OPEN_BRANCH_ID`)  as totalBranch
 FROM account;

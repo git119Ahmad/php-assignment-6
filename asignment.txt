@@ -1,0 +1,51 @@
+SELECT DISTINCT `OPEN_BRANCH_ID` as branchId
+FROM account;
+
+#total branch number*
+SELECT COUNT(DISTINCT `OPEN_BRANCH_ID`)  as branchId
+FROM account;
+
+#available balance more than 100
+SELECT * FROM account 
+WHERE `AVAIL_BALANCE` > 100;
+
+#having aggregated function group by
+SELECT AVAIL_BALANCE
+FROM account 
+GROUP BY AVAIL_BALANCE
+HAVING AVG(AVAIL_BALANCE) > 1000;
+
+#not understood
+SELECT AVAIL_BALANCE
+FROM account 
+GROUP BY AVAIL_BALANCE
+HAVING AVG(AVAIL_BALANCE) > (SELECT AVG(`AVAIL_BALANCE`) FROM accoun);
+
+#more than 5 customers query
+SELECT COUNT(CUST_ID), state
+FROM customer
+group by state
+HAVING COUNT(cust_id) > 5;
+
+#branch avg balance > 5000 NU
+SELECT `OPEN_BRANCH_ID`, AVG(AVAIL_BALANCE) as avg_balance
+FROM account
+WHERE STATUS = "ACTIVE"
+GROUP BY OPEN_BRANCH_ID
+HAVING AVG(AVAIL_BALANCE) > 5000; 
+
+#second max salary* Not clear
+SELECT * 
+FROM employee 
+ORDER BY salary
+DESC
+LIMIT 1
+OFFSET 1;
+
+# second way sub query 
+SELECT MAX(salary)
+FROM employee
+WHERE salary < (SELECT MAX(salary) FROM employee);
+
+
+
