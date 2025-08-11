@@ -1,0 +1,34 @@
+1)A)
+SELECT * 
+FROM employee 
+ORDER BY salary
+DESC
+LIMIT 3
+OFFSET 3;
+
+B)
+SELECT MAX(salary)
+FROM employee
+WHERE salary < (SELECT MAX(salary) FROM employee);
+
+C)a.
+SELECT AVG(pending_balance) AS average_pending_balance
+FROM account;
+
+b.
+SELECT PENDING_BALANCE   FROM  `account` WHERE STATUS='ACTIVE';
+
+c.
+SELECT PENDING_BALANCE   FROM  `account` GROUP By OPEN_BRANCH_ID;
+
+d.
+SELECT PENDING_BALANCE   FROM  `account` WHERE PENDING_BALANCE < 4300;
+
+D)
+SELECT * FROM `ACCOUNT` LIMIT 5 OFFSET 10;
+This query will skip first 10 value and then keep next 5 values like
+3 second max salary in 1(a) above.
+
+E)
+SELECT COUNT(DISTINCT `OPEN_BRANCH_ID`)  as headbranch
+FROM account;
